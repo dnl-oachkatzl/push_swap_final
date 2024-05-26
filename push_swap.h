@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/26 16:44:00 by daspring         ###   ########.fr       */
+/*   Updated: 2024/05/26 17:19:55 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct	s_stack_metadata
 {
 	t_dl_list	*head;
 	t_dl_list	*tail;
+	int			number_of_elements;
 }				t_stack_metadata;
 
 #endif

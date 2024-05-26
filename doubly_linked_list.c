@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/26 16:59:19 by daspring         ###   ########.fr       */
+/*   Updated: 2024/05/26 18:03:54 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,47 @@ void	delete_node(t_dl_list *node)
 	free(node);
 }
 
-t_dl_list	*push(t_dl_list *list, int rel_position)
+void	insert_node(t_dl_list *node, t_stack_metadata *stack, int position)
 {
-	if (list == NULL)
+	if (stack->number_of_elements == 0)
 	{
+		stack->head = node;
+		stack->tail = node;
 	}
-	if (rel_position == BEFORE)
+	else if (position == TOP)
 	{
-		// is the given node the very first?
-		// is the given node the very last?
-
+		node->next = stack->head;
+		stack->head->previous = node;
+		stack->head = node;
 	}
+	else if (position == BOTTOM)
+	{
+		node->previous = stack->tail;
+		stack->tail->next = node;
+		stack->tail = node;
+	}
+	stack->number_of_elements++;
 }
 
-t_dl_list	*pop(t_dl_list *list);
+t_dl_list	*extract_node(t_stack_metadata *stack, int position)
+{
+	t_dl_list	*node;
+	t_dl_list	*prev;
+	t_dl_list	*next;
+
+	if (position == TOP)
+		node = stack->head;
+	else if (position == BOTTOM)
+		node = stack->tail;
+	prev = node->previous;
+	next = node->next;
+	if (prev != NULL)
+		prev->next = next;
+	if (next != NULL)
+		next->previous = prev;
+	stack->number_of_elements--;
+	return (node);
+}
 
 void	delete_stack(t_stack_metadata *stack)
 {
