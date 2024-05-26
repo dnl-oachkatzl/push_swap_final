@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/26 18:03:54 by daspring         ###   ########.fr       */
+/*   Updated: 2024/05/26 18:05:28 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_dl_list	*create_node(void *data)
 		return (NULL);
 	new_node->next = NULL;
 	new_node->previous = NULL;
-	new_node->content = data;	
-	return (new_node);	
+	new_node->content = data;
+	return (new_node);
 }
 
 void	delete_node(t_dl_list *node)

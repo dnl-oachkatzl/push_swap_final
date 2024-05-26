@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/26 17:19:55 by daspring         ###   ########.fr       */
+/*   Updated: 2024/05/26 18:08:06 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "doubly_linked_list.h"
 
-typedef struct	s_stack_metadata
+typedef struct s_stack_metadata
 {
 	t_dl_list	*head;
 	t_dl_list	*tail;
