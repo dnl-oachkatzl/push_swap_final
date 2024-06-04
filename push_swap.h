@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/26 18:08:06 by daspring         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:32:12 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # include "doubly_linked_list.h"
 
-typedef struct s_stack_metadata
+typedef struct s_input
 {
-	t_dl_list	*head;
-	t_dl_list	*tail;
-	int			number_of_elements;
-}				t_stack_metadata;
+	int	*unsorted_input;
+	int	input_has_errors;
+}	t_input;
+
+void	init_stack(t_stack *stack);
+void	process_input(t_input *input, int argc, char *argv[]);
 
 #endif

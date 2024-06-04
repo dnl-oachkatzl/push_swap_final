@@ -6,16 +6,28 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/26 18:05:28 by daspring         ###   ########.fr       */
+/*   Updated: 2024/05/28 19:59:42 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+// #include <stddef.h>
 #include <stdlib.h>
 
 #include "doubly_linked_list.h"
-#include "push_swap.h"
 
+/*
+ *	DELETE STACK DOES NOT YET WORK
+ */
+
+
+
+/**	@brief creates a new node
+ *
+ *	caller must free the returned node after use!
+ *
+ *	@param data takes any type of data as content
+ *	@return a node of type t_dl_list
+ */
 t_dl_list	*create_node(void *data)
 {
 	t_dl_list	*new_node;
@@ -37,7 +49,7 @@ void	delete_node(t_dl_list *node)
 	free(node);
 }
 
-void	insert_node(t_dl_list *node, t_stack_metadata *stack, int position)
+void	insert_node(t_dl_list *node, t_stack *stack, int position)
 {
 	if (stack->number_of_elements == 0)
 	{
@@ -59,27 +71,29 @@ void	insert_node(t_dl_list *node, t_stack_metadata *stack, int position)
 	stack->number_of_elements++;
 }
 
-t_dl_list	*extract_node(t_stack_metadata *stack, int position)
+t_dl_list	*extract_node(t_stack *stack, int position)
 {
 	t_dl_list	*node;
-	t_dl_list	*prev;
-	t_dl_list	*next;
 
 	if (position == TOP)
+	{
 		node = stack->head;
-	else if (position == BOTTOM)
+		stack->head = node->next;
+		stack->head->previous = NULL;
+	}
+	else
+	{
 		node = stack->tail;
-	prev = node->previous;
-	next = node->next;
-	if (prev != NULL)
-		prev->next = next;
-	if (next != NULL)
-		next->previous = prev;
+		stack->tail = node->previous;
+		stack->tail->next = NULL;
+	}
 	stack->number_of_elements--;
+	node->previous = NULL;
+	node->next = NULL;
 	return (node);
 }
 
-void	delete_stack(t_stack_metadata *stack)
+void	delete_stack(t_stack *stack)
 {
 	t_dl_list	*current_node;
 
