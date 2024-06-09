@@ -31,6 +31,7 @@ debug :
 all : $(NAME)
 clean :
 	@rm -f *.o
+	@rm -rf ./dorker ./debug
 	@echo "removed object files"
 fclean : clean
 	@rm -f $(NAME)
