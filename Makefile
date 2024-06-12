@@ -1,5 +1,3 @@
-# SHELL = /bin/zsh
-
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -11,31 +9,36 @@ SOURCES =	./push_swap.c\
 
 OBJECTS := $(SOURCES:.c=.o)
 
-$(NAME) : $(OBJECTS)
-	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+$(NAME) : $(OBJECTS) libft/libft.a
+	@$(CC) $(CFLAGS) $(OBJECTS) ./libft/libft.a -o $(NAME)
 	@echo "created $(NAME)"
 
 # use: dorker make valgrind
-valgrind :
+valgrind : libft/libft.a
 	@rm -Rf ./dorker
 	@mkdir ./dorker
-	$(CC) -g $(SOURCES) -o ./dorker/dorker_$(NAME)
+	$(CC) -g $(SOURCES) ./libft/libft.a -o ./dorker/dorker_$(NAME)
 	valgrind --leak-check=full ./dorker/dorker_push_swap
 
-debug :
+debug : libft/libft.a
 	-mkdir ./debug
-	$(CC) -g $(SOURCES) -o ./debug/debug_$(NAME)
+	$(CC) -g $(SOURCES) ./libft/libft.a -o ./debug/debug_$(NAME)
 	./debug/debug_$(NAME) 42 24
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+libft/libft.a :
+	@make -C ./libft/
+
 all : $(NAME)
 clean :
 	@rm -f *.o
 	@rm -rf ./dorker ./debug
+	@make -C ./libft clean
 	@echo "removed object files"
 fclean : clean
+	@make -C ./libft fclean
 	@rm -f $(NAME)
 	@echo "removed $(NAME)"
 re : fclean all

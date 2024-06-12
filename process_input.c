@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/12 17:35:18 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:55:33 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ void	process_input(t_input *input, int argc, char *argv[])
 		input->input_has_errors = 1;
 		return ;
 	}
+	// put words into char*[]
+	// count words
 	input->unsorted_input = malloc((argc - 1) * sizeof(int));
 	if (input->unsorted_input == NULL)
 	{
 		input->input_has_errors = 1;
 		return ;
 	}
+	// put ints into array
+	// sort pre-sort-array
 	while (--argc >= 1)
 		{
 		input->unsorted_input[argc - 1] = ft_atoi_mod(input, argv[argc]);
