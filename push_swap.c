@@ -6,12 +6,13 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:13:18 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/12 12:09:11 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:43:55 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "doubly_linked_list.h"
 #include "push_swap.h"
@@ -46,11 +47,16 @@ int	main(int argc, char *argv[])
 	init_stack(&a_stack);
 	init_stack(&b_stack);
 	process_input(input, argc, argv);
+	if (input->input_has_errors)
+	{
+		write(2, "Error\n", 6);
+		return (EXIT_FAILURE);
+	}
 	fill_stack_a(&a_stack, input);
 	print_single_stack(&a_stack);
 	// for (int i = 0; i < argc - 1; i++)
 	// {
 	// 	printf("%d\n", input->unsorted_input[i]);
 	// }
-	return (0);
+	return (EXIT_SUCCESS);
 }

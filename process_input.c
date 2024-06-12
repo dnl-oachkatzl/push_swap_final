@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/12 12:32:33 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:35:18 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 static void	check_leading_chars(const char *str, size_t *pos, int *signum);
 static int	ft_atoi_mod(t_input *input, const char *str);
-
 
 void	process_input(t_input *input, int argc, char *argv[])
 {
