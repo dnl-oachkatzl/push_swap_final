@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/09 18:22:52 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/12 12:32:33 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,17 @@ void	process_input(t_input *input, int argc, char *argv[])
 		return ;
 	}
 	while (--argc >= 1)
+		{
 		input->unsorted_input[argc - 1] = ft_atoi_mod(input, argv[argc]);
+		input->num_of_entries++;
+		}
 }
-
-// int		*check_input(int argc, char *argv[])
-// {
-// 	int	*value_array;
-//
-// 	value_array = malloc((argc - 1) * sizeof(int));
-// 	while (--argc > 0)
-// 	{
-// 		value_array[argc - 1] = ft_atoi_mod(argv[argc]);
-// 	}
-// 	return (value_array);
-// }
 
 static int	ft_atoi_mod(t_input *input, const char *str)
 {
 	unsigned long long	number;
 	size_t				pos;
 	int					signum;
-	int					counter;
 
 	number = 0;
 	pos = 0;
@@ -73,7 +63,7 @@ static int	ft_atoi_mod(t_input *input, const char *str)
 			return (-1);
 		}
 	}
-	while (str[pos] == '\0')
+	while (str[pos] != '\0')
 	{
 		if (!(str[pos] == ' ' || str[pos] == '\t' || str[pos] == '\n' || str[pos] == '\v' || str[pos] == '\f' || str[pos] == '\r'))
 		{

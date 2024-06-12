@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/28 19:32:12 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:28:18 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_input
 {
 	int	*unsorted_input;
+	int	num_of_entries;
 	int	input_has_errors;
 }	t_input;
 

@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/05/28 19:59:42 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:44:23 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@
  *	caller must free the returned node after use!
  *
  *	@param data takes any type of data as content
- *	@return a node of type t_dl_list
+ *	@return a node of type t_dl_node
  */
-t_dl_list	*create_node(void *data)
+t_dl_node	*create_node(void *data)
 {
-	t_dl_list	*new_node;
+	t_dl_node	*new_node;
 
-	new_node = malloc(1 * sizeof(t_dl_list));
+	new_node = malloc(1 * sizeof(t_dl_node));
 	if (new_node == NULL)
 		return (NULL);
 	new_node->next = NULL;
@@ -41,7 +41,7 @@ t_dl_list	*create_node(void *data)
 	return (new_node);
 }
 
-void	delete_node(t_dl_list *node)
+void	delete_node(t_dl_node *node)
 {
 	free(node->content);
 	free(node->previous);
@@ -49,7 +49,7 @@ void	delete_node(t_dl_list *node)
 	free(node);
 }
 
-void	insert_node(t_dl_list *node, t_stack *stack, int position)
+void	insert_node(t_dl_node *node, t_stack *stack, int position)
 {
 	if (stack->number_of_elements == 0)
 	{
@@ -71,9 +71,9 @@ void	insert_node(t_dl_list *node, t_stack *stack, int position)
 	stack->number_of_elements++;
 }
 
-t_dl_list	*extract_node(t_stack *stack, int position)
+t_dl_node	*extract_node(t_stack *stack, int position)
 {
-	t_dl_list	*node;
+	t_dl_node	*node;
 
 	if (position == TOP)
 	{
@@ -95,7 +95,7 @@ t_dl_list	*extract_node(t_stack *stack, int position)
 
 void	delete_stack(t_stack *stack)
 {
-	t_dl_list	*current_node;
+	t_dl_node	*current_node;
 
 	current_node = stack->head;
 	stack->head = stack->head->next;
