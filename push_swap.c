@@ -6,11 +6,10 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:13:18 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/15 15:29:47 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:51:51 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -42,19 +41,26 @@ int	main(int argc, char *argv[])
 	// int		input[] = {1, 2, 3, 4};
 	t_stack	a_stack;
 	t_stack	b_stack;
-	t_input	*input;
+	t_input	input;
+	t_memories	memories;
 
-	input = malloc(sizeof(t_input));
-	if (input == NULL)
-		fatal_termination();
+	init_input(&input, argc, argv);
 	init_stack(&a_stack);
 	init_stack(&b_stack);
-	process_input(input, argc, argv);
-	fill_stack_a(&a_stack, input);
+
+
+	memories.input = &input;
+	memories.a_stack = &a_stack;
+	memories.b_stack = &b_stack;
+
+
+	process_input(&input, &memories);
+	fill_stack_a(&a_stack, &input);
 	print_single_stack(&a_stack);
 	// for (int i = 0; i < argc - 1; i++)
 	// {
 	// 	ft_printf("%d\n", input->unsorted_input[i]);
 	// }
+	free_memories(&memories, argc);
 	return (EXIT_SUCCESS);
 }

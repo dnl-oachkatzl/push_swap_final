@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+# CFLAGS = -Wall -Werror -Wextra
 SOURCES =	./push_swap.c\
 			./utils.c\
 			./doubly_linked_list.c\

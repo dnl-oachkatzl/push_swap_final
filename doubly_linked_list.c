@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/11 18:44:23 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:51:52 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include <stdlib.h>
 
 #include "doubly_linked_list.h"
-
-/*
- *	DELETE STACK DOES NOT YET WORK
- */
-
-
 
 /**	@brief creates a new node
  *
@@ -96,8 +90,13 @@ t_dl_node	*extract_node(t_stack *stack, int position)
 void	delete_stack(t_stack *stack)
 {
 	t_dl_node	*current_node;
+	t_dl_node	*next_node;
 
 	current_node = stack->head;
-	stack->head = stack->head->next;
-	delete_node(current_node);
+	while (current_node != NULL)
+	{
+		next_node = current_node->next;
+		delete_node(current_node);
+		current_node = next_node;
+	}
 }
