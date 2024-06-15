@@ -5,6 +5,8 @@ SOURCES =	./push_swap.c\
 			./utils.c\
 			./doubly_linked_list.c\
 			./process_input.c\
+			./free_mem.c\
+			./termination.c\
 			./testing/print_things.c
 
 OBJECTS := $(SOURCES:.c=.o)
@@ -33,7 +35,8 @@ libft/libft.a :
 
 all : $(NAME)
 clean :
-	@rm -f *.o
+	@rm -f ./*.o
+	@rm -f ./testing/*.o
 	@rm -rf ./dorker ./debug
 	@make -C ./libft clean
 	@echo "removed object files"

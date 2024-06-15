@@ -6,89 +6,81 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/12 17:55:33 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/15 15:29:47 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <limits.h>
 
 #include "doubly_linked_list.h"
 #include "push_swap.h"
+#include "libft/libft.h"
 
-#include <stddef.h>
 
-static void	check_leading_chars(const char *str, size_t *pos, int *signum);
-static int	ft_atoi_mod(t_input *input, const char *str);
+static char	***create_words_out_of_argv(char *argv[], int argc);
+static int	count_words(char ***argv_as_words, int argc);
 
 void	process_input(t_input *input, int argc, char *argv[])
 {
+	char	***argv_as_words;
+	int		num_of_words;
+
 	if (argc == 1)
+		fatal_termination();
+	argv_as_words = create_words_out_of_argv(argv, argc);
+	num_of_words = count_words(argv_as_words, argc);
+	ft_printf("number of words: %d\n", num_of_words);
+	input->unsorted_input = malloc(num_of_words * sizeof(int));
+	input->sorted_input = malloc(num_of_words * sizeof(int));
+	if (input->unsorted_input == NULL || input->sorted_input == NULL)
 	{
-		input->input_has_errors = 1;
-		return ;
+		free_argv_as_words(argv_as_words, argc);
+		fatal_termination();
 	}
-	// put words into char*[]
-	// count words
-	input->unsorted_input = malloc((argc - 1) * sizeof(int));
-	if (input->unsorted_input == NULL)
-	{
-		input->input_has_errors = 1;
-		return ;
-	}
+	// 
 	// put ints into array
 	// sort pre-sort-array
-	while (--argc >= 1)
-		{
-		input->unsorted_input[argc - 1] = ft_atoi_mod(input, argv[argc]);
-		input->num_of_entries++;
-		}
+	// while (--argc >= 1)
+	// {
+	// 	input->unsorted_input[argc - 1] = ft_atoi_mod(argv[argc]);
+	// 	input->num_of_entries++;
+	// }
+	free_argv_as_words(argv_as_words, argc);
 }
 
-static int	ft_atoi_mod(t_input *input, const char *str)
+static char	***create_words_out_of_argv(char *argv[], int argc)
 {
-	unsigned long long	number;
-	size_t				pos;
-	int					signum;
+	char	***argv_as_words;
+	int		pos;
 
-	number = 0;
+	argv_as_words = malloc((argc - 1) * sizeof(char *));
+	if (argv_as_words == NULL)
+		fatal_termination();
 	pos = 0;
-	signum = 1;
-	check_leading_chars(str, &pos, &signum);
-	while (str[pos] >= '0' && str[pos] <= '9')
+	while (pos < argc - 1)
 	{
-		number = (number * 10) + (str[pos] - '0');
-		pos++;
-		if (number > INT_MAX)
-		{
-			input->input_has_errors = 1;
-			return (-1);
-		}
-	}
-	while (str[pos] != '\0')
-	{
-		if (!(str[pos] == ' ' || str[pos] == '\t' || str[pos] == '\n' || str[pos] == '\v' || str[pos] == '\f' || str[pos] == '\r'))
-		{
-			input->input_has_errors = 1;
-			return (-1);
-		}
+		argv_as_words[pos] = ft_split(argv[pos + 1], ' ');
 		pos++;
 	}
-	return ((int)(signum * number));
+	return (argv_as_words);
 }
 
-static void	check_leading_chars(const char *str, size_t *pos, int *signum)
+static int	count_words(char ***argv_as_words, int argc)
 {
-	while (str[*pos] == ' ' || str[*pos] == '\t' || str[*pos] == '\n'\
-	|| str[*pos] == '\v' || str[*pos] == '\f' || str[*pos] == '\r')
-		(*pos)++;
-	if (str[*pos] == '+' || str[*pos] == '-')
+	int	number_of_words;
+	int	pos;
+
+	number_of_words = 0;
+	while (argc > 1)
 	{
-		if (str[*pos] == '-')
-			*signum = -1;
-		(*pos)++;
+		pos = 0;
+		while (argv_as_words[argc - 2][pos])
+		{
+			number_of_words++;
+			pos++;
+		}
+		argc--;
 	}
-	while (str[*pos] == '0')
-		(*pos)++;
+	return (number_of_words);
 }

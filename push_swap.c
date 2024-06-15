@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:13:18 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/12 18:44:13 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/15 15:29:47 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,16 @@ int	main(int argc, char *argv[])
 	t_input	*input;
 
 	input = malloc(sizeof(t_input));
+	if (input == NULL)
+		fatal_termination();
 	init_stack(&a_stack);
 	init_stack(&b_stack);
 	process_input(input, argc, argv);
-	if (input->input_has_errors)
-	{
-		write(2, "Error\n", 6);
-		return (EXIT_FAILURE);
-	}
 	fill_stack_a(&a_stack, input);
 	print_single_stack(&a_stack);
-	for (int i = 0; i < argc - 1; i++)
-	{
-		ft_printf("%d\n", input->unsorted_input[i]);
-	}
+	// for (int i = 0; i < argc - 1; i++)
+	// {
+	// 	ft_printf("%d\n", input->unsorted_input[i]);
+	// }
 	return (EXIT_SUCCESS);
 }
