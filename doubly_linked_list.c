@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/15 18:51:52 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:29:23 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_dl_node	*create_node(void *data)
 void	delete_node(t_dl_node *node)
 {
 	free(node->content);
-	free(node->previous);
-	free(node->next);
+	// free(node->previous);
+	// free(node->next);
 	free(node);
 }
 
@@ -96,7 +96,8 @@ void	delete_stack(t_stack *stack)
 	while (current_node != NULL)
 	{
 		next_node = current_node->next;
-		delete_node(current_node);
+		free(current_node);
+		// delete_node(current_node);
 		current_node = next_node;
 	}
 }

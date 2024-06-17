@@ -2,6 +2,7 @@ NAME = push_swap
 CC = cc
 # CFLAGS = -Wall -Werror -Wextra
 SOURCES =	./push_swap.c\
+			./inits.c\
 			./utils.c\
 			./doubly_linked_list.c\
 			./process_input.c\

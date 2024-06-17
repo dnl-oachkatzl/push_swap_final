@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:13:18 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/15 18:51:51 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:35:52 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ void	fill_stack_a(t_stack *stack_a, t_input *input)
 
 int	main(int argc, char *argv[])
 {
-	// check_input
-	// create stack_a
-	// print stack_a
-
-	// int		input[] = {1, 2, 3, 4};
 	t_stack	a_stack;
 	t_stack	b_stack;
 	t_input	input;
@@ -47,16 +42,13 @@ int	main(int argc, char *argv[])
 	init_input(&input, argc, argv);
 	init_stack(&a_stack);
 	init_stack(&b_stack);
-
-
-	memories.input = &input;
-	memories.a_stack = &a_stack;
-	memories.b_stack = &b_stack;
-
-
+	init_memories(&memories, &input, &a_stack, &b_stack);
 	process_input(&input, &memories);
 	fill_stack_a(&a_stack, &input);
 	print_single_stack(&a_stack);
+	print_int_array(input.unsorted_input, input.num_of_entries); 
+	// print_int_array(input.sorted_input, input.num_of_entries); 
+
 	// for (int i = 0; i < argc - 1; i++)
 	// {
 	// 	ft_printf("%d\n", input->unsorted_input[i]);

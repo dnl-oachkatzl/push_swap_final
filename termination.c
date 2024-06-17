@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:59:58 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/15 18:31:44 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/15 21:22:32 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	termination(void)
 void	fatal_termination(t_memories *memories, int argc)
 {
 	ft_putstr_fd("Error\n", 2);
+	free_memories(memories, argc);
 	exit(EXIT_FAILURE);
 }

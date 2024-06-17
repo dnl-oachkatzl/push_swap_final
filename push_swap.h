@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/15 18:02:20 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:17:31 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ typedef struct s_memories
 
 void	init_stack(t_stack *stack);
 void	init_input(t_input *input, int argc, char **argv);
+void	init_memories(t_memories *memories, t_input *input, t_stack *a_stack, t_stack *b_stack);
 void	process_input(t_input *input, t_memories *memories);
-int		ft_atoi_mod(const char *str);
+int		ft_atoi_mod(const char *str, t_memories *memories, int argc);
 void	termination(void);
 void	fatal_termination(t_memories *memories, int argc);
 void	free_argv_as_words(char ***argv_as_words, int argc);
