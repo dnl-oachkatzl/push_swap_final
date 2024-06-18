@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 16:22:06 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:32:33 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ typedef struct s_memories
 
 void	init_stack(t_stack *stack);
 void	init_input(t_input *input, int argc, char **argv);
-void	init_memories(t_memories *memories, t_input *input, t_stack *a_stack, t_stack *b_stack);
+void	init_memories(t_memories *memories, t_input *input, t_stack *a_stack, \
+				t_stack *b_stack);
 void	process_input(t_input *input, t_memories *memories);
+void	play_the_game(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+				t_memories *memories);
 int		ft_atoi_mod(const char *str, t_memories *memories, int argc);
 void	fill_stack_a(t_stack *stack_a, t_input *input);
 void	termination(void);

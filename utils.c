@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 16:21:40 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:29:55 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "push_swap.h"
 
 static void	check_leading_chars(const char *str, size_t *pos, int *signum);
+
 int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 {
 	unsigned long long	number;
@@ -38,7 +39,8 @@ int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 	}
 	while (str[pos] != '\0')
 	{
-		if (!(str[pos] == ' ' || str[pos] == '\t' || str[pos] == '\n' || str[pos] == '\v' || str[pos] == '\f' || str[pos] == '\r'))
+		if (!(str[pos] == ' ' || str[pos] == '\t' || str[pos] == '\n' \
+			|| str[pos] == '\v' || str[pos] == '\f' || str[pos] == '\r'))
 			fatal_termination(memories, argc);
 		pos++;
 	}
@@ -68,7 +70,8 @@ void	fill_stack_a(t_stack *stack_a, t_input *input)
 	pos = 0;
 	while (pos < input->num_of_entries)
 	{
-		current_node = create_node(input->unsorted_input[pos], input->sorted_input[pos]);
+		current_node = create_node(input->unsorted_input[pos], \
+							input->sorted_input[pos]);
 		insert_node(current_node, stack_a, BOTTOM);
 		pos++;
 	}

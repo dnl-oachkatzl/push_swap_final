@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:10:58 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/17 11:37:07 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:33:06 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	init_input(t_input *input, int argc, char **argv)
 	input->sorted_input = NULL;
 }
 
-void	init_memories(t_memories *memories, t_input *input, t_stack *a_stack, t_stack *b_stack)
+void	init_memories(t_memories *memories, t_input *input, t_stack *a_stack, \
+				t_stack *b_stack)
 {
 	memories->input = input;
 	memories->a_stack = a_stack;
