@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/17 16:18:50 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 11:51:35 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 static char	***create_words_out_of_argv(char *argv[], int argc, t_memories *memories);
 static int	count_words(char ***argv_as_words, int argc);
 static void	put_ints_into_unsorted_array(t_input *input, char ***argv_as_words, int argc, t_memories *memories);
-static void	pre_sort_ints(t_input *input, t_memories *memories);
+static void	pre_sort_and_check_duplicates(t_input *input, t_memories *memories);
 
 void	process_input(t_input *input, t_memories *memories)
 {
@@ -35,7 +35,7 @@ void	process_input(t_input *input, t_memories *memories)
 	if (input->unsorted_input == NULL || input->sorted_input == NULL)
 		fatal_termination(memories, input->argc);
 	put_ints_into_unsorted_array(input, memories->argv_as_words, input->argc, memories);
-	pre_sort_ints(input, memories);
+	pre_sort_and_check_duplicates(input, memories);
 	free_argv_as_words(memories->argv_as_words, input->argc);
 	memories->argv_as_words = NULL;
 }
@@ -99,24 +99,32 @@ static void	put_ints_into_unsorted_array(t_input *input, char ***argv_as_words, 
 	}
 }
 
-static void	pre_sort_ints(t_input *input, t_memories *memories)
+static void	pre_sort_and_check_duplicates(t_input *input, t_memories *memories)
 {
 	int	pos1;
 	int	pos2;
-	int	smallest_entry;
+	int	examined_number;
+	int	occurence_of_examined_number;
+	int	number_of_entries_smaller_than_examined_number;
 
 	pos1 = 0;
 	while (pos1 < input->num_of_entries)
 	{
-		smallest_entry = input->unsorted_input[pos1++];
+		examined_number = input->unsorted_input[pos1];
+		occurence_of_examined_number = 0;
+		number_of_entries_smaller_than_examined_number = 0;
 		pos2 = 0;
-		while (pos1 + pos2 < input->num_of_entries)
+		while (pos2 < input->num_of_entries)
 		{
-			if (input->unsorted_input[pos1 + pos2] < smallest_entry)
-				smallest_entry = input->unsorted_input[pos1 + pos2];
-			if (input->unsorted_input[pos1 + pos2] == smallest_entry)
+			if (input->unsorted_input[pos2] < examined_number)
+				number_of_entries_smaller_than_examined_number++;
+			else if (input->unsorted_input[pos2] == examined_number)
+				occurence_of_examined_number++;
+			if (occurence_of_examined_number > 1)
 				fatal_termination(memories, input->argc);
+			input->sorted_input[pos1] = number_of_entries_smaller_than_examined_number;
 			pos2++;
 		}
+		pos1++;
 	}
 }

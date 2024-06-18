@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:13:18 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/17 16:35:52 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 11:59:35 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,7 @@ int	main(int argc, char *argv[])
 	fill_stack_a(&a_stack, &input);
 	print_single_stack(&a_stack);
 	print_int_array(input.unsorted_input, input.num_of_entries); 
-	// print_int_array(input.sorted_input, input.num_of_entries); 
-
-	// for (int i = 0; i < argc - 1; i++)
-	// {
-	// 	ft_printf("%d\n", input->unsorted_input[i]);
-	// }
+	print_int_array(input.sorted_input, input.num_of_entries); 
 	free_memories(&memories, argc);
 	return (EXIT_SUCCESS);
 }
