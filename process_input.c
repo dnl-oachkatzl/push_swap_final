@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 17:08:08 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 23:47:28 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	process_input(t_input *input, t_memories *memories)
 	memories->argv_as_words = create_words_out_of_argv(input->argv, \
 													input->argc, memories);
 	input->num_of_entries = count_words(memories->argv_as_words, input->argc);
-	ft_printf("number of words: %d\n", input->num_of_entries);
 	input->unsorted_input = malloc(input->num_of_entries * sizeof(int));
 	input->sorted_input = malloc(input->num_of_entries * sizeof(int));
 	if (input->unsorted_input == NULL || input->sorted_input == NULL)

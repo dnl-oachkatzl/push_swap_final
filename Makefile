@@ -13,6 +13,7 @@ SOURCES =	./push_swap.c\
 			./rules_rotate.c\
 			./rules_rev_rotate.c\
 			./the_game.c\
+			./small_cases.c\
 			./testing/print_things.c
 
 OBJECTS := $(SOURCES:.c=.o)

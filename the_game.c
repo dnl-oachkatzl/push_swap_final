@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   termination.c                                      :+:      :+:    :+:   */
+/*   the_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 11:59:58 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 17:17:49 by daspring         ###   ########.fr       */
+/*   Created: 2024/06/18 16:42:16 by daspring          #+#    #+#             */
+/*   Updated: 2024/06/18 17:23:06 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-#include "libft/libft.h"
+#include "doubly_linked_list.h"
 #include "push_swap.h"
 
-void	termination(t_memories *memories, int argc)
+void	play_the_game(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+					t_memories *memories)
 {
-	free_memories(memories, argc);
-	exit(EXIT_SUCCESS);
-}
-
-void	fatal_termination(t_memories *memories, int argc)
-{
-	ft_putstr_fd("Error\n", 2);
-	free_memories(memories, argc);
-	exit(EXIT_FAILURE);
+	fill_stack_a(stack_a, input);
+	if (input->num_of_entries == 1)
+		case1(input, memories);
+	if (input->num_of_entries == 2)
+		case2(stack_a, stack_b, input, memories);
 }

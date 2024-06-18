@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 12:16:15 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 23:46:24 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,19 @@ t_dl_node	*extract_node(t_stack *stack, int position)
 	{
 		node = stack->head;
 		stack->head = node->next;
-		stack->head->previous = NULL;
+		if (stack->number_of_elements == 1)
+			stack->tail = NULL;
+		else
+			stack->head->previous = NULL;
 	}
 	else
 	{
 		node = stack->tail;
 		stack->tail = node->previous;
-		stack->tail->next = NULL;
+		if (stack->number_of_elements == 1)
+			stack->head = NULL;
+		else
+			stack->tail->next = NULL;
 	}
 	stack->number_of_elements--;
 	node->previous = NULL;
