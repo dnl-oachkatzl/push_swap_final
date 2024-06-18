@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/17 12:17:30 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:21:40 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,18 @@ static void	check_leading_chars(const char *str, size_t *pos, int *signum)
 	}
 	while (str[*pos] == '0')
 		(*pos)++;
+}
+
+void	fill_stack_a(t_stack *stack_a, t_input *input)
+{
+	int			pos;
+	t_dl_node	*current_node;
+
+	pos = 0;
+	while (pos < input->num_of_entries)
+	{
+		current_node = create_node(input->unsorted_input[pos], input->sorted_input[pos]);
+		insert_node(current_node, stack_a, BOTTOM);
+		pos++;
+	}
 }

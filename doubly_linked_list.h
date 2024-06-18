@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:05:41 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/12 11:43:38 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:15:40 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 typedef struct s_dl_node
 {
-	void				*content;
+	int					value;
+	int					rel_value;
 	struct s_dl_node	*previous;
 	struct s_dl_node	*next;
 }						t_dl_node;
@@ -30,8 +31,7 @@ typedef struct s_stack
 	int			number_of_elements;
 }				t_stack;
 
-t_dl_node	*create_node(void *data);
-void		delete_node(t_dl_node *node);
+t_dl_node	*create_node(int value, int rel_value);
 void		insert_node(t_dl_node *node, t_stack *stack, int position);
 
 /**	@brief removes a node from a given list, either from head or from tail

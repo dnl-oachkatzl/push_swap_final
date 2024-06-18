@@ -8,6 +8,10 @@ SOURCES =	./push_swap.c\
 			./process_input.c\
 			./free_mem.c\
 			./termination.c\
+			./rules_push.c\
+			./rules_swap.c\
+			./rules_rotate.c\
+			./rules_rev_rotate.c\
 			./testing/print_things.c
 
 OBJECTS := $(SOURCES:.c=.o)

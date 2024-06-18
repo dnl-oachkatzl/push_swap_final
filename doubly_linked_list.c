@@ -6,11 +6,10 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/17 16:29:23 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:16:15 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stddef.h>
 #include <stdlib.h>
 
 #include "doubly_linked_list.h"
@@ -22,7 +21,7 @@
  *	@param data takes any type of data as content
  *	@return a node of type t_dl_node
  */
-t_dl_node	*create_node(void *data)
+t_dl_node	*create_node(int value, int rel_value)
 {
 	t_dl_node	*new_node;
 
@@ -31,16 +30,9 @@ t_dl_node	*create_node(void *data)
 		return (NULL);
 	new_node->next = NULL;
 	new_node->previous = NULL;
-	new_node->content = data;
+	new_node->value = value;
+	new_node->rel_value = rel_value;
 	return (new_node);
-}
-
-void	delete_node(t_dl_node *node)
-{
-	free(node->content);
-	// free(node->previous);
-	// free(node->next);
-	free(node);
 }
 
 void	insert_node(t_dl_node *node, t_stack *stack, int position)
@@ -97,7 +89,6 @@ void	delete_stack(t_stack *stack)
 	{
 		next_node = current_node->next;
 		free(current_node);
-		// delete_node(current_node);
 		current_node = next_node;
 	}
 }
