@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 17:03:23 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:08:08 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,19 +116,20 @@ static void	pre_sort_and_check_duplicates(t_input *input, t_memories *memories)
 	pos1 = 0;
 	while (pos1 < input->num_of_entries)
 	{
-		examined_number = input->unsorted_input[pos1];
+		examined_number = input->unsorted_input[pos1++];
 		occurence_of_examined_number = 0;
 		counting_nums_smaller_than_examined = 0;
 		pos2 = 0;
 		while (pos2 < input->num_of_entries)
 		{
-			if (input->unsorted_input[pos2++] < examined_number)
+			if (input->unsorted_input[pos2] < examined_number)
 				counting_nums_smaller_than_examined++;
-			else if (input->unsorted_input[pos2++] == examined_number)
+			else if (input->unsorted_input[pos2] == examined_number)
 				occurence_of_examined_number++;
 			if (occurence_of_examined_number > 1)
 				fatal_termination(memories, input->argc);
-			input->sorted_input[pos1++] = counting_nums_smaller_than_examined;
+			input->sorted_input[pos1 - 1] = counting_nums_smaller_than_examined;
+			pos2++;
 		}
 	}
 }
