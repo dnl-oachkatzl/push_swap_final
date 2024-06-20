@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 23:47:28 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/20 10:56:23 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	pre_sort_and_check_duplicates(t_input *input, t_memories *memories);
 void	process_input(t_input *input, t_memories *memories)
 {
 	if (input->argc == 1)
-		fatal_termination(memories, input->argc);
+		termination(memories, input->argc);
 	memories->argv_as_words = create_words_out_of_argv(input->argv, \
 													input->argc, memories);
 	input->num_of_entries = count_words(memories->argv_as_words, input->argc);

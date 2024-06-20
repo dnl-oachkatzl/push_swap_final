@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 16:29:55 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:27:18 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 	{
 		number = (number * 10) + (str[pos] - '0');
 		pos++;
-		if (number > INT_MAX)
+		if (signum == 1 && number > INT_MAX)
+			fatal_termination(memories, argc);
+		if (signum == 0 && number - 1 > INT_MAX)
 			fatal_termination(memories, argc);
 	}
 	while (str[pos] != '\0')

@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 17:23:43 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/20 11:34:31 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define PUSH_SWAP_H
 
 # include "doubly_linked_list.h"
+
+
+
+# include "./testing/test_fts.h"
+
 
 typedef struct s_input
 {
@@ -45,6 +50,10 @@ void	play_the_game(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories);
 void	case1(t_input *input, t_memories *memories);
 void	case2(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+				t_memories *memories);
+void	case3(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+				t_memories *memories);
+void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories);
 
 void	termination(t_memories *memories, int argc);
