@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/20 11:34:31 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:00:39 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,13 @@ void	case3(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories);
 void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories);
+void	case5(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+				t_memories *memories);
+
+int	find_index_of_zero(t_input *input);
+void	array_del_entry(int *array, int idx_entry, int len);
+void	ra_for_array(int *array, int len);
+void	array_decrement_by_one(int *array, int len);
 
 void	termination(t_memories *memories, int argc);
 void	fatal_termination(t_memories *memories, int argc);

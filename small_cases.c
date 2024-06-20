@@ -6,17 +6,13 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:14:47 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/20 16:51:09 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:01:04 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
 #include "rules.h"
-
-static int	find_index_of_zero(t_input *input);
-static void	array_del_entry(int *array, int idx_entry, int len);
-static void	array_decrement_by_one(int *array, int len);
 
 void	case1(t_input *input, t_memories *memories)
 {
@@ -52,6 +48,83 @@ void	case3(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 		rra(stack_a);
 }
 
+// void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+// 				t_memories *memories)
+// {
+// 	int	index_of_zero;
+//
+// 	index_of_zero = find_index_of_zero(input);
+// 	if (index_of_zero == 0)
+// 	{
+// 		pb(stack_a, stack_b);
+// 		array_del_entry(input->sorted_input, 0, input->num_of_entries);
+// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
+// 		case3(stack_a, stack_b, input, memories);
+// 		pa(stack_a, stack_b);
+// 	}
+// 	else if (index_of_zero == 1)
+// 	{
+// 		ra(stack_a);
+// 		array_del_entry(input->sorted_input, 1, input->num_of_entries);
+// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
+// 		pb(stack_a, stack_b);
+// 		case3(stack_a, stack_b, input, memories);
+// 		pa(stack_a, stack_b);
+// 	}
+// 	else if (index_of_zero == 2)
+// 	{
+// 		ra(stack_a);
+// 		ra(stack_a);
+// 		pb(stack_a, stack_b);
+// 		array_del_entry(input->sorted_input, 1, input->num_of_entries);
+// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
+// 		case3(stack_a, stack_b, input, memories);
+// 		pa(stack_a, stack_b);
+// 	}
+// 	else if (index_of_zero == 3)
+// 	{
+// 		rra(stack_a);
+// 		pb(stack_a, stack_b);
+// 		case3(stack_a, stack_b, input, memories);
+// 		pa(stack_a, stack_b);
+// 	}
+// }
+
+// void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+// 				t_memories *memories)
+// {
+// 	int	index_of_zero;
+//
+// 	index_of_zero = find_index_of_zero(input);
+// 	if (index_of_zero == 0)
+// 	{
+// 		pb(stack_a, stack_b);
+// 		array_del_entry(input->sorted_input, 0, input->num_of_entries);
+// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
+// 		case3(stack_a, stack_b, input, memories);
+// 		pa(stack_a, stack_b);
+// 	}
+// 	else if (index_of_zero == 1)
+// 	{
+// 		ra(stack_a);
+// 		ra_for_array(input->sorted_input, input->num_of_entries);
+// 		case4(stack_a, stack_b, input, memories);
+// 	}
+// 	else if (index_of_zero == 2)
+// 	{
+// 		ra(stack_a);
+// 		ra_for_array(input->sorted_input, input->num_of_entries);
+// 		case4(stack_a, stack_b, input, memories);
+// 	}
+// 	else if (index_of_zero == 3)
+// 	{
+// 		rra(stack_a);
+// 		pb(stack_a, stack_b);
+// 		case3(stack_a, stack_b, input, memories);
+// 		pa(stack_a, stack_b);
+// 	}
+// }
+
 void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories)
 {
@@ -66,65 +139,33 @@ void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 		case3(stack_a, stack_b, input, memories);
 		pa(stack_a, stack_b);
 	}
-	else if (index_of_zero == 1)
+	else
 	{
 		ra(stack_a);
-		array_del_entry(input->sorted_input, 1, input->num_of_entries);
+		ra_for_array(input->sorted_input, input->num_of_entries);
+		case4(stack_a, stack_b, input, memories);
+	}
+}
+
+void	case5(t_stack *stack_a, t_stack *stack_b, t_input *input, \
+				t_memories *memories)
+{
+	int	index_of_zero;
+
+	index_of_zero = find_index_of_zero(input);
+	if (index_of_zero == 0)
+	{
+		pb(stack_a, stack_b);
+		array_del_entry(input->sorted_input, 0, input->num_of_entries);
 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
-		pb(stack_a, stack_b);
-		case3(stack_a, stack_b, input, memories);
+		case4(stack_a, stack_b, input, memories);
 		pa(stack_a, stack_b);
 	}
-	else if (index_of_zero == 2)
+	else
 	{
 		ra(stack_a);
-		ra(stack_a);
-		pb(stack_a, stack_b);
-		array_del_entry(input->sorted_input, 1, input->num_of_entries);
-		array_decrement_by_one(input->sorted_input, input->num_of_entries);
-		case3(stack_a, stack_b, input, memories);
-		pa(stack_a, stack_b);
-	}
-	else if (index_of_zero == 3)
-	{
-		rra(stack_a);
-		pb(stack_a, stack_b);
-		case3(stack_a, stack_b, input, memories);
-		pa(stack_a, stack_b);
+		ra_for_array(input->sorted_input, input->num_of_entries);
+		case5(stack_a, stack_b, input, memories);
 	}
 }
 
-static int	find_index_of_zero(t_input *input)
-{
-	int	pos;
-
-	pos = 0;
-	while (pos < input->num_of_entries)
-	{
-		if (input->sorted_input[pos] == 0)
-			return (pos);
-		pos++;
-	}
-	return (-1);
-}
-
-static void	array_del_entry(int *array, int idx_entry, int len)
-{
-	while (idx_entry < len - 1)
-	{
-		array[idx_entry] = array[idx_entry + 1];
-		idx_entry++;
-	}
-}
-
-static void	array_decrement_by_one(int *array, int len)
-{
-	int	pos;
-
-	pos = 0;
-	while (pos < len)
-	{
-		array[pos]--;
-		pos++;
-	}
-}

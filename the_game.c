@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 16:42:16 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/20 11:02:57 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:55:44 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,6 @@ void	play_the_game(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 		case3(stack_a, stack_b, input, memories);
 	if (input->num_of_entries == 4)
 		case4(stack_a, stack_b, input, memories);
+	if (input->num_of_entries == 5)
+		case5(stack_a, stack_b, input, memories);
 }
