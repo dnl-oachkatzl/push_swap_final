@@ -18,7 +18,8 @@
 #include "doubly_linked_list.h"
 #include "push_swap.h"
 
-static void	check_leading_chars(const char *str, size_t *pos, int *signum);
+static void	check_leading_chars(const char *str, size_t *pos, int *signum, \
+				t_memories *memories, int argc);
 
 int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 {
@@ -29,14 +30,14 @@ int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 	number = 0;
 	pos = 0;
 	signum = 1;
-	check_leading_chars(str, &pos, &signum);
+	check_leading_chars(str, &pos, &signum, memories, argc);
 	while (str[pos] >= '0' && str[pos] <= '9')
 	{
 		number = (number * 10) + (str[pos] - '0');
 		pos++;
 		if (signum == 1 && number > INT_MAX)
 			fatal_termination(memories, argc);
-		if (signum == 0 && number - 1 > INT_MAX)
+		if (signum == -1 && number - 1 > INT_MAX)
 			fatal_termination(memories, argc);
 	}
 	while (str[pos] != '\0')
@@ -49,7 +50,8 @@ int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 	return ((int)(signum * number));
 }
 
-static void	check_leading_chars(const char *str, size_t *pos, int *signum)
+static void	check_leading_chars(const char *str, size_t *pos, int *signum, \
+				t_memories *memories, int argc)
 {
 	while (str[*pos] == ' ' || str[*pos] == '\t' || str[*pos] == '\n'\
 	|| str[*pos] == '\v' || str[*pos] == '\f' || str[*pos] == '\r')
@@ -60,6 +62,8 @@ static void	check_leading_chars(const char *str, size_t *pos, int *signum)
 			*signum = -1;
 		(*pos)++;
 	}
+	if (!(str[*pos] >= '0' && str[*pos] <= '9'))
+		fatal_termination(memories, argc);
 	while (str[*pos] == '0')
 		(*pos)++;
 }
