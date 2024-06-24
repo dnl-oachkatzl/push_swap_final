@@ -15,6 +15,7 @@ SOURCES =	./push_swap.c\
 			./the_game.c\
 			./small_cases.c\
 			./small_cases_utils.c\
+			./radix_sort.c\
 			./testing/print_things.c
 
 OBJECTS := $(SOURCES:.c=.o)
