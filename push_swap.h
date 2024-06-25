@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/23 20:06:19 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:36:36 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "doubly_linked_list.h"
-
-
-
-# include "./testing/test_fts.h"
-
 
 typedef struct s_input
 {
@@ -48,18 +43,16 @@ void	fill_stack_a(t_stack *stack_a, t_input *input);
 
 void	play_the_game(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories);
-void	case1(t_input *input, t_memories *memories);
-void	case2(t_stack *stack_a, t_stack *stack_b, t_input *input, \
-				t_memories *memories);
-void	case3(t_stack *stack_a, t_stack *stack_b, t_input *input, \
-				t_memories *memories);
+void	case1(void);
+void	case2(t_stack *stack_a, t_input *input);
+void	case3(t_stack *stack_a, t_input *input);
 void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories);
 void	case5(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories);
-void	radix_sort(t_stack *stack_a, t_stack *stack_b, t_input *input, t_memories *memories);
+void	radix_sort(t_stack *stack_a, t_stack *stack_b);
 
-int	find_index_of_zero(t_input *input);
+int		find_index_of_zero(t_input *input);
 void	array_del_entry(int *array, int idx_entry, int len);
 void	ra_for_array(int *array, int len);
 void	rra_for_array(int *array, int len);

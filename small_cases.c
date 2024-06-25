@@ -6,21 +6,19 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:14:47 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/23 20:21:36 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:34:30 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "push_swap.h"
 #include "rules.h"
 
-void	case1(t_input *input, t_memories *memories)
+void	case1(void)
 {
-	;
+	return ;
 }
 
-void	case2(t_stack *stack_a, t_stack *stack_b, t_input *input, \
-				t_memories *memories)
+void	case2(t_stack *stack_a, t_input *input)
 {
 	if (input->sorted_input[0] < input->sorted_input[1])
 		;
@@ -28,17 +26,15 @@ void	case2(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 		sa(stack_a);
 }
 
-void	case3(t_stack *stack_a, t_stack *stack_b, t_input *input, \
-				t_memories *memories)
+void	case3(t_stack *stack_a, t_input *input)
 {
-	// print_int_array(input->sorted_input, 5);
 	if (input->sorted_input[2] == 2)
-		case2(stack_a, stack_b, input, memories);
+		case2(stack_a, input);
 	else if (input->sorted_input[0] == 2)
 	{
 		ra(stack_a);
 		array_del_entry(input->sorted_input, 0, 3);
-		case2(stack_a, stack_b, input, memories);
+		case2(stack_a, input);
 	}
 	else if (input->sorted_input[0] == 0)
 	{
@@ -60,7 +56,7 @@ void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 		pb(stack_a, stack_b);
 		array_del_entry(input->sorted_input, 0, 4);
 		array_decrement_by_one(input->sorted_input, 4);
-		case3(stack_a, stack_b, input, memories);
+		case3(stack_a, input);
 		pa(stack_a, stack_b);
 	}
 	else
@@ -98,4 +94,3 @@ void	case5(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 		case5(stack_a, stack_b, input, memories);
 	}
 }
-

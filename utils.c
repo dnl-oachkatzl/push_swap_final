@@ -6,14 +6,12 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/24 14:23:02 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:27:35 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
-#include <stddef.h>
 
 #include "doubly_linked_list.h"
 #include "push_swap.h"
@@ -27,9 +25,8 @@ int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 	size_t				pos;
 	int					signum;
 
-	if (!*str)
+	if (NULL)
 		fatal_termination(memories, argc);
-
 	number = 0;
 	pos = 0;
 	signum = 1;
