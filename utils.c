@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/19 16:27:18 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:23:02 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 	unsigned long long	number;
 	size_t				pos;
 	int					signum;
+
+	if (!*str)
+		fatal_termination(memories, argc);
 
 	number = 0;
 	pos = 0;

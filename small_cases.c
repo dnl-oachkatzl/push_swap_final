@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:14:47 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/20 19:01:04 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/23 20:21:36 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ void	case2(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 void	case3(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories)
 {
+	// print_int_array(input->sorted_input, 5);
 	if (input->sorted_input[2] == 2)
 		case2(stack_a, stack_b, input, memories);
 	else if (input->sorted_input[0] == 2)
 	{
 		ra(stack_a);
-		array_del_entry(input->sorted_input, 0, input->num_of_entries);
+		array_del_entry(input->sorted_input, 0, 3);
 		case2(stack_a, stack_b, input, memories);
 	}
 	else if (input->sorted_input[0] == 0)
@@ -48,83 +49,6 @@ void	case3(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 		rra(stack_a);
 }
 
-// void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
-// 				t_memories *memories)
-// {
-// 	int	index_of_zero;
-//
-// 	index_of_zero = find_index_of_zero(input);
-// 	if (index_of_zero == 0)
-// 	{
-// 		pb(stack_a, stack_b);
-// 		array_del_entry(input->sorted_input, 0, input->num_of_entries);
-// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
-// 		case3(stack_a, stack_b, input, memories);
-// 		pa(stack_a, stack_b);
-// 	}
-// 	else if (index_of_zero == 1)
-// 	{
-// 		ra(stack_a);
-// 		array_del_entry(input->sorted_input, 1, input->num_of_entries);
-// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
-// 		pb(stack_a, stack_b);
-// 		case3(stack_a, stack_b, input, memories);
-// 		pa(stack_a, stack_b);
-// 	}
-// 	else if (index_of_zero == 2)
-// 	{
-// 		ra(stack_a);
-// 		ra(stack_a);
-// 		pb(stack_a, stack_b);
-// 		array_del_entry(input->sorted_input, 1, input->num_of_entries);
-// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
-// 		case3(stack_a, stack_b, input, memories);
-// 		pa(stack_a, stack_b);
-// 	}
-// 	else if (index_of_zero == 3)
-// 	{
-// 		rra(stack_a);
-// 		pb(stack_a, stack_b);
-// 		case3(stack_a, stack_b, input, memories);
-// 		pa(stack_a, stack_b);
-// 	}
-// }
-
-// void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
-// 				t_memories *memories)
-// {
-// 	int	index_of_zero;
-//
-// 	index_of_zero = find_index_of_zero(input);
-// 	if (index_of_zero == 0)
-// 	{
-// 		pb(stack_a, stack_b);
-// 		array_del_entry(input->sorted_input, 0, input->num_of_entries);
-// 		array_decrement_by_one(input->sorted_input, input->num_of_entries);
-// 		case3(stack_a, stack_b, input, memories);
-// 		pa(stack_a, stack_b);
-// 	}
-// 	else if (index_of_zero == 1)
-// 	{
-// 		ra(stack_a);
-// 		ra_for_array(input->sorted_input, input->num_of_entries);
-// 		case4(stack_a, stack_b, input, memories);
-// 	}
-// 	else if (index_of_zero == 2)
-// 	{
-// 		ra(stack_a);
-// 		ra_for_array(input->sorted_input, input->num_of_entries);
-// 		case4(stack_a, stack_b, input, memories);
-// 	}
-// 	else if (index_of_zero == 3)
-// 	{
-// 		rra(stack_a);
-// 		pb(stack_a, stack_b);
-// 		case3(stack_a, stack_b, input, memories);
-// 		pa(stack_a, stack_b);
-// 	}
-// }
-
 void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 				t_memories *memories)
 {
@@ -134,15 +58,15 @@ void	case4(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 	if (index_of_zero == 0)
 	{
 		pb(stack_a, stack_b);
-		array_del_entry(input->sorted_input, 0, input->num_of_entries);
-		array_decrement_by_one(input->sorted_input, input->num_of_entries);
+		array_del_entry(input->sorted_input, 0, 4);
+		array_decrement_by_one(input->sorted_input, 4);
 		case3(stack_a, stack_b, input, memories);
 		pa(stack_a, stack_b);
 	}
 	else
 	{
 		ra(stack_a);
-		ra_for_array(input->sorted_input, input->num_of_entries);
+		ra_for_array(input->sorted_input, 4);
 		case4(stack_a, stack_b, input, memories);
 	}
 }
@@ -156,15 +80,21 @@ void	case5(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 	if (index_of_zero == 0)
 	{
 		pb(stack_a, stack_b);
-		array_del_entry(input->sorted_input, 0, input->num_of_entries);
-		array_decrement_by_one(input->sorted_input, input->num_of_entries);
+		array_del_entry(input->sorted_input, 0, 5);
+		array_decrement_by_one(input->sorted_input, 5);
 		case4(stack_a, stack_b, input, memories);
 		pa(stack_a, stack_b);
+	}
+	else if (index_of_zero == 4)
+	{
+		rra(stack_a);
+		rra_for_array(input->sorted_input, 5);
+		case5(stack_a, stack_b, input, memories);
 	}
 	else
 	{
 		ra(stack_a);
-		ra_for_array(input->sorted_input, input->num_of_entries);
+		ra_for_array(input->sorted_input, 5);
 		case5(stack_a, stack_b, input, memories);
 	}
 }

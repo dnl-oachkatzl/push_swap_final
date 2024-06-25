@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 18:57:18 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/20 19:00:39 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/23 20:18:39 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ void	ra_for_array(int *array, int len)
 	tmp = array[0];
 	array_del_entry(array, 0, len);
 	array[len - 1] = tmp;
+}
+
+void	rra_for_array(int *array, int len)
+{
+	int	tmp;
+
+	tmp = array[len - 1];
+	while (0 < len - 1)
+	{
+		array[len - 1] = array[len - 2];
+		len--;
+	}
+	array[0] = tmp;
 }
 
 void	array_decrement_by_one(int *array, int len)
