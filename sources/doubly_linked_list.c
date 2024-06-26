@@ -6,13 +6,13 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 23:46:24 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:03:22 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-#include "doubly_linked_list.h"
+#include "../includes/doubly_linked_list.h"
 
 /**	@brief creates a new node
  *

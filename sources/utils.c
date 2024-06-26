@@ -6,15 +6,15 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/26 14:05:27 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <limits.h>
 
-#include "doubly_linked_list.h"
-#include "push_swap.h"
+#include "../includes/doubly_linked_list.h"
+#include "../includes/push_swap.h"
 
 static void	check_leading_chars(t_input_string_data *isd, t_memories *memories, \
 								int argc);

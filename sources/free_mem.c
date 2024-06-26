@@ -6,14 +6,14 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:27:00 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/17 15:56:40 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:07:55 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-#include "push_swap.h"
-#include "doubly_linked_list.h"
+#include "../includes/push_swap.h"
+#include "../includes/doubly_linked_list.h"
 
 void	free_memories(t_memories *memories, int argc)
 {

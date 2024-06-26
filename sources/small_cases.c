@@ -6,12 +6,12 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:14:47 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/25 13:34:30 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "rules.h"
+#include "../includes/push_swap.h"
+#include "../includes/rules.h"
 
 void	case1(void)
 {

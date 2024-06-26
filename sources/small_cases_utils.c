@@ -6,11 +6,11 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 18:57:18 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/23 20:18:39 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	find_index_of_zero(t_input *input)
 {

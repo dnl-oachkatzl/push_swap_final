@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_rotate.c                                     :+:      :+:    :+:   */
+/*   rules_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/18 15:35:58 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 15:45:52 by daspring         ###   ########.fr       */
+/*   Created: 2024/06/18 13:06:11 by daspring          #+#    #+#             */
+/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-#include "doubly_linked_list.h"
+#include "../includes/doubly_linked_list.h"
 
-void	ra(t_stack *stack_a)
-{
-	t_dl_node	*node;
-
-	node = extract_node(stack_a, TOP);
-	insert_node(node, stack_a, BOTTOM);
-	write(1, "ra\n", 3);
-}
-
-void	rb(t_stack *stack_b)
+void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	t_dl_node	*node;
 
 	node = extract_node(stack_b, TOP);
-	insert_node(node, stack_b, BOTTOM);
-	write(1, "rb\n", 3);
+	insert_node(node, stack_a, TOP);
+	write(1, "pa\n", 3);
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	t_dl_node	*node;
 
-	node = extract_node(stack_b, TOP);
-	insert_node(node, stack_b, BOTTOM);
 	node = extract_node(stack_a, TOP);
-	insert_node(node, stack_a, BOTTOM);
-	write(1, "rr\n", 3);
+	insert_node(node, stack_b, TOP);
+	write(1, "pb\n", 3);
 }

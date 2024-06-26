@@ -6,12 +6,12 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 16:42:16 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/25 13:36:50 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "doubly_linked_list.h"
-#include "push_swap.h"
+#include "../includes/doubly_linked_list.h"
+#include "../includes/push_swap.h"
 
 void	play_the_game(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 					t_memories *memories)

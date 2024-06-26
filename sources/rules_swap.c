@@ -6,13 +6,13 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:06:11 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 15:45:50 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-#include "doubly_linked_list.h"
+#include "../includes/doubly_linked_list.h"
 
 void	sa(t_stack *stack_a)
 {
