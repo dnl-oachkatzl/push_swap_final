@@ -6,12 +6,14 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:17:19 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/25 13:36:36 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:03:46 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include <stddef.h>
 
 # include "doubly_linked_list.h"
 
@@ -31,6 +33,13 @@ typedef struct s_memories
 	t_stack	*a_stack;
 	t_stack	*b_stack;
 }	t_memories;
+
+typedef struct s_input_string_data
+{
+	char	*str;
+	size_t	pos;
+	int		signum;
+}			t_input_string_data;
 
 void	init_stack(t_stack *stack);
 void	init_input(t_input *input, int argc, char **argv);

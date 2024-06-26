@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+# CFLAGS = -Wall -Werror -Wextra
 SOURCES =	./push_swap.c\
 			./inits.c\
 			./utils.c\
@@ -20,11 +20,11 @@ SOURCES =	./push_swap.c\
 OBJECTS := $(SOURCES:.c=.o)
 
 $(NAME) : $(OBJECTS) libft/libft.a
-	@$(CC) $(CFLAGS) $(OBJECTS) ./libft/libft.a -o $(NAME)
+	@$(CC) -g $(CFLAGS) $(OBJECTS) ./libft/libft.a -o $(NAME)
 	@echo "created $(NAME)"
 
 %.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) -g $(CFLAGS) -c $< -o $@
 
 libft/libft.a :
 	@make -C ./libft/

@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/25 13:27:35 by daspring         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:05:27 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,50 +16,54 @@
 #include "doubly_linked_list.h"
 #include "push_swap.h"
 
-static void	check_leading_chars(const char *str, size_t *pos, int *signum, \
-				t_memories *memories, int argc);
+static void	check_leading_chars(t_input_string_data *isd, t_memories *memories, \
+								int argc);
 
 int	ft_atoi_mod(const char *str, t_memories *memories, int argc)
 {
 	unsigned long long	number;
-	size_t				pos;
-	int					signum;
+	t_input_string_data	isd;
 
-	if (NULL)
-		fatal_termination(memories, argc);
 	number = 0;
-	pos = 0;
-	signum = 1;
-	check_leading_chars(str, &pos, &signum, memories, argc);
-	while (str[pos] >= '0' && str[pos] <= '9')
+	isd.str = (char *)str;
+	isd.pos = 0;
+	isd.signum = 1;
+	check_leading_chars(&isd, memories, argc);
+	while (isd.str[isd.pos] >= '0' && isd.str[isd.pos] <= '9')
 	{
-		number = (number * 10) + (str[pos] - '0');
-		pos++;
-		if (signum == 1 && number > INT_MAX)
+		number = (number * 10) + (isd.str[isd.pos++] - '0');
+		if (isd.signum == 1 && number > INT_MAX)
 			fatal_termination(memories, argc);
-		if (signum == -1 && number - 1 > INT_MAX)
+		if (isd.signum == -1 && number - 1 > INT_MAX)
 			fatal_termination(memories, argc);
 	}
-	while (str[pos] != '\0')
+	while (isd.str[isd.pos] != '\0')
 	{
-		if (!(str[pos] == ' ' || str[pos] == '\t' || str[pos] == '\n' \
-			|| str[pos] == '\v' || str[pos] == '\f' || str[pos] == '\r'))
+		if (!(isd.str[isd.pos] == ' ' || isd.str[isd.pos] == '\t' || \
+			isd.str[isd.pos] == '\n' || isd.str[isd.pos] == '\v' || \
+			isd.str[isd.pos] == '\f' || isd.str[isd.pos] == '\r'))
 			fatal_termination(memories, argc);
-		pos++;
+		isd.pos++;
 	}
-	return ((int)(signum * number));
+	return ((int)(isd.signum * number));
 }
 
-static void	check_leading_chars(const char *str, size_t *pos, int *signum, \
-				t_memories *memories, int argc)
+static void	check_leading_chars(t_input_string_data *isd, t_memories *memories, \
+								int argc)
 {
-	while (str[*pos] == ' ' || str[*pos] == '\t' || str[*pos] == '\n'\
-	|| str[*pos] == '\v' || str[*pos] == '\f' || str[*pos] == '\r')
+	char	*str;
+	size_t	*pos;
+
+	str = isd->str;
+	pos = &(isd->pos);
+	while (str[*pos] == ' ' || str[*pos] == '\t' || \
+			str[*pos] == '\n' || str[*pos] == '\v' || \
+			str[*pos] == '\f' || str[*pos] == '\r')
 		(*pos)++;
 	if (str[*pos] == '+' || str[*pos] == '-')
 	{
 		if (str[*pos] == '-')
-			*signum = -1;
+			isd->signum = -1;
 		(*pos)++;
 	}
 	if (!(str[*pos] >= '0' && str[*pos] <= '9'))
