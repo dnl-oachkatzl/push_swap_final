@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:16:56 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/26 15:03:22 by daspring         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:12:41 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 #include "../includes/doubly_linked_list.h"
 
-/**	@brief creates a new node
- *
- *	caller must free the returned node after use!
- *
- *	@param data takes any type of data as content
- *	@return a node of type t_dl_node
- */
 t_dl_node	*create_node(int value, int rel_value)
 {
 	t_dl_node	*new_node;

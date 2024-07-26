@@ -6,14 +6,13 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:08:46 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "../includes/doubly_linked_list.h"
 #include "../includes/push_swap.h"
 #include "../lib/libft/libft.h"
 

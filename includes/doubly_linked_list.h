@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:05:41 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/18 12:15:40 by daspring         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:05:41 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,6 @@ typedef struct s_stack
 
 t_dl_node	*create_node(int value, int rel_value);
 void		insert_node(t_dl_node *node, t_stack *stack, int position);
-
-/**	@brief removes a node from a given list, either from head or from tail
- *
- *	@param stack from which to remove
- *	@param position either TOP or BOTTOM
- *
- *	@return the removed node
- */
 t_dl_node	*extract_node(t_stack *stack, int position);
 void		delete_stack(t_stack *stack);
 
