@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 13:08:07 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:28:02 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	pos_in_binary = 0;
 	while (pos_in_binary < length_of_binary)
 	{
+		if (check_if_sorted(stack_a))
+			return ;
 		pos_in_stack = 0;
 		while (pos_in_stack < stack_a->number_of_elements)
 		{

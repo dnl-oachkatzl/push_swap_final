@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 16:42:16 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:26:56 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	play_the_game(t_stack *stack_a, t_stack *stack_b, t_input *input, \
 					t_memories *memories)
 {
 	fill_stack_a(stack_a, input);
+	if (check_if_sorted(stack_a))
+		return ;
 	if (input->num_of_entries == 1)
 		case1();
 	else if (input->num_of_entries == 2)

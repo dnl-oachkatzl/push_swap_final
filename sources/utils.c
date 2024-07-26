@@ -6,7 +6,7 @@
 /*   By: daspring <daspring@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 18:27:31 by daspring          #+#    #+#             */
-/*   Updated: 2024/06/26 15:07:56 by daspring         ###   ########.fr       */
+/*   Updated: 2024/07/26 14:46:47 by daspring         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,21 @@ void	fill_stack_a(t_stack *stack_a, t_input *input)
 		insert_node(current_node, stack_a, BOTTOM);
 		pos++;
 	}
+}
+
+int	check_if_sorted(t_stack *stack_a)
+{
+	t_dl_node	*current_node;
+
+	current_node = stack_a->head;
+	while (current_node != NULL)
+	{
+		if (current_node->next != NULL)
+		{
+			if (current_node->value > current_node->next->value)
+				return (0);
+		}
+		current_node = current_node->next;
+	}
+	return (1);
 }

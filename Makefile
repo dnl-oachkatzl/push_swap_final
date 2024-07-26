@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -O3
 SOURCES =	./sources/push_swap.c\
 			./sources/inits.c\
 			./sources/utils.c\
